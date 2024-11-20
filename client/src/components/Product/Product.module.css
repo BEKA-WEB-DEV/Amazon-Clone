@@ -52,7 +52,7 @@
   }
 
   
-/* 
+
   .product__flexed {
     box-shadow: none;
     height: auto;
@@ -74,7 +74,7 @@
     height: 50vh;
   }
   .product__flexed img {
-    width: 300px !important;
+    width: 200px !important;
     height: auto;
   }
   
@@ -84,4 +84,4 @@
       display: flex;
       flex-direction: column;
     }
-  } */
+  }

@@ -15,7 +15,7 @@ function ProductDetail() {
   
   useEffect(() => {
     setIsLoading(true)
-    axios.get(`${baseURL}/product/${productId}`)
+    axios.get(`${baseURL}/products/${productId}`)
     .then((res)=>{
       setProduct(res.data);
       setIsLoading(false);
