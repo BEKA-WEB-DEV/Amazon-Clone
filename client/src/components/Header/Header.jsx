@@ -6,9 +6,10 @@ import { BiCart } from "react-icons/bi";
 import LowerHeader from './LowerHeader';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../DataProvider/DataProvider';
+import { auth } from '../../Utility/firebase';
 
 const Header = () => {
-    const[{basket}, dispatch] = useContext(DataContext)
+    const[{basket, user}, dispatch] = useContext(DataContext)
     const totalItems = basket?.reduce((amount, item) => item.amount + amount, 0)
     return (
         <section className={classes.fixed}> 
@@ -39,7 +40,7 @@ const Header = () => {
                         
                         <input type='text' name='' id='' placeholder='Search Amazon' />
                         
-                        <BsSearch size={25} />
+                        <BsSearch size={38} />
                     </div>
 
 
@@ -54,15 +55,27 @@ const Header = () => {
                             </Link>
 
                             {/* Sign in */}
-                            <Link to="/auth">
-                                <p>Sign in</p>
-                                <span>Account & Lists</span>
-                            
+                            <Link to={!user && "/auth"} >
+                                <div>
+                                    {user ? (
+                                    <>
+                                        <p>Hello {user?.email?.split("@")[0]}</p>
+                                        <span onClick={() => (user ? auth.signOut() : null)}>
+                                        Sign Out
+                                        </span>
+                                    </>
+                                    ) : (
+                                    <>
+                                        <p>Hello, Sign In</p>
+                                        <span>Account & Lists</span>
+                                    </>
+                                    )}
+                                </div>
                             </Link>
 
                             {/* Order */}
-                            <Link to="/orders">
-                                <p>Return</p>
+                            <Link  to="/orders" >
+                                <p>returns</p>
                                 <span>& Orders</span>
                             </Link>
 
