@@ -16,7 +16,7 @@ function MyCarousel() {
         >
             {
                 img.map((item) => {
-                    return <img src={item} alt=""/>
+                    return <img key={item} src={item} alt=""/>
                 })
             }
 
