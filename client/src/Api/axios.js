@@ -2,9 +2,10 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // firebase deployed
-  baseURL : "http://127.0.0.1:5001/clone-7e0cb/us-central1/api"
+  // baseURL : "not-working"
+  
   //  using render
-    // baseURL :'https://amazone-api.onrender.com'
+    baseURL :'https://amazon-api-deploy-35q7.onrender.com'
 });
 
 export { axiosInstance };
